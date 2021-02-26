@@ -1,0 +1,6 @@
+{
+  "app_name": "kz",
+  "snack_no_connection": "No connection",
+  "snack_back_connection": "online",
+  "snack_unstable_connection": "Unstable_connection"
+}
