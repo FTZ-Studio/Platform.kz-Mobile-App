@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:kz/Style.dart';
+import 'package:kz/UI/General/General.dart';
 import 'package:kz/UI/InitialPage/InitialPage.dart';
 import 'package:kz/UI/widgets/ConnectionProvider.dart';
 import 'package:kz/routes.dart';
@@ -15,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData().copyWith(backgroundColor: cBlack,appBarTheme: ThemeData().appBarTheme.copyWith(color: cWhite, actionsIconTheme: IconThemeData(size: 24, color: cBlack, opacity: 1))),
       navigatorKey: AppKeys.navigatorKey,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
@@ -36,9 +39,10 @@ class MyApp extends StatelessWidget {
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
         );
       },
-      initialRoute: Routes.initial,
+      initialRoute: Routes.general,
       routes: <String, WidgetBuilder>{
         Routes.initial: (BuildContext context) => InitialPage(),
+        Routes.general: (BuildContext context) => General(),
       },
     );
   }

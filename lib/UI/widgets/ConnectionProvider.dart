@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'file:///C:/Users/koren/AndroidStudioProjects/kz/lib/utils/connection_status_singleton.dart';
+import 'package:kz/utils/connection_status_singleton.dart';
+
 import 'package:kz/utils/snack_bar.dart';
 
 
