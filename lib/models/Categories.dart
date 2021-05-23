@@ -13,7 +13,7 @@ class Category {
 
   factory Category.fromMap(Map<String, dynamic> map) {
     return new Category(
-      id: map['id'] as int,
+      id: int.parse(map['id']),
       name: map['name'] as String,
       children: map['children'].map((i)=>CategoryChild.fromMap(i)).toList().cast<CategoryChild>() as List<CategoryChild>,
     );
@@ -42,9 +42,9 @@ class CategoryChild {
 
   factory CategoryChild.fromMap(Map<String, dynamic> map) {
     return new CategoryChild(
-      id: map['id'] as int,
+      id: int.parse(map['id']),
       name: map['name'] as String,
-      parent: map['parent'] as int,
+      parent: int.parse(map['parent']),
     );
   }
 

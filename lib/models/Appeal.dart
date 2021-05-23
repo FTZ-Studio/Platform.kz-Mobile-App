@@ -9,6 +9,7 @@ class Appeal {
   String comment;
   List<String> photos;
   Address address;
+  String addressText;
   CategoryChild category;
   bool anonim;
   int status;
@@ -16,6 +17,9 @@ class Appeal {
   String date;
   User user;
   List<Comment> comments;
+  bool openComments;
+  String response;
+  String dateResponse;
 
   Appeal({
     this.id,
@@ -29,21 +33,27 @@ class Appeal {
     this.date,
     this.user,
     this.comments,
-  });
+    this.response,
+    this.dateResponse
+  }){
+    openComments = false;
+  }
 
   factory Appeal.fromMap(Map<String, dynamic> map) {
     return new Appeal(
-      id: map['id'] as int,
-      comment: map['comment'] as String,
-      photos: map['photos'].map((i) => i).toList().cast<String>() as List<String>,
+      id: int.parse(map['id']),
+      comment: map['comment'].toString(),
+      photos: map['photo']== null?[]:map['photo'].map((i) => i).toList().cast<String>() as List<String>,
       address: map['address'] == null?null:Address.fromMap(map['address']),
       category: CategoryChild.fromMap(map['category']),
       anonim: map['anonim']== "0"?false:true,
       status: map['status'] == null?null:int.parse(map['status']),
       organ: map['organ'] as String,
       date: map['date'] as String,
-      user: map['anonim'] == "0"?null:User.fromMap(map['user']),
+      user: map['anonim'] == "1"?null:User.fromMap(map['user']),
       comments: map['comments'] == null?[]:map['comments'].map((i)=> Comment.fromMap(i)).toList().cast<Comment>() as List<Comment>,
+      response:  map['response'],
+      dateResponse: map['resolved_at']
     );
   }
 
@@ -54,7 +64,7 @@ class Appeal {
       'id': this.id,
       'comment': this.comment,
       'photos': this.photos,
-      'address': this.address.toMap(),
+      'latlng': this.address.toMap(),
       'category': this.category.id,
       'anonim': this.anonim,
     } as Map<String, dynamic>;

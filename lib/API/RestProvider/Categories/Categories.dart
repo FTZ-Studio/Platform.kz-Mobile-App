@@ -1,6 +1,6 @@
 part of '../RestProvider.dart';
 
-class _CategoryProvider {
+class CategoryProvider {
   static Future<Put> add (String name, {int parent})async{
     String urlQuery = urlConstructor(Methods.categories.add);
     String token = await tokenDB();

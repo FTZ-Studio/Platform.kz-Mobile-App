@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:kz/Style.dart';
 import 'package:kz/UI/General/General.dart';
+import 'package:kz/UI/General/Pages/Contacts.dart';
+import 'package:kz/UI/General/Pages/Ideas/Ideas.dart';
+import 'package:kz/UI/General/Pages/News/NewsPage.dart';
+import 'package:kz/UI/General/Pages/Profile/Profile.dart';
+import 'package:kz/UI/General/Pages/Tenders/Tenders.dart';
 import 'package:kz/UI/InitialPage/InitialPage.dart';
 import 'package:kz/UI/widgets/ConnectionProvider.dart';
+import 'package:kz/UI/widgets/SelectRegion.dart';
 import 'package:kz/routes.dart';
 import 'package:kz/utils/app_keys.dart';
 import 'generated/l10n.dart';
@@ -31,7 +37,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return MediaQuery(
           child: Scaffold(
-            key: AppKeys.scaffoldKey,
+            // key: AppKeys.scaffoldKey,
             body: ConnectionProvider(
               child: child,
             ),
@@ -43,6 +49,12 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         Routes.initial: (BuildContext context) => InitialPage(),
         Routes.general: (BuildContext context) => General(),
+        Routes.profile: (BuildContext context) => Profile(),
+        Routes.news: (BuildContext context) => NewsPage(),
+        Routes.regions: (BuildContext context) => SelectRegion(),
+        Routes.idea: (BuildContext context) => IdeasPage(),
+        Routes.tenders: (BuildContext context) => TendersPage(),
+        Routes.contacts: (BuildContext context) => Contacts(),
       },
     );
   }

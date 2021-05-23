@@ -1,13 +1,13 @@
 part of '../RestProvider.dart';
 
-class _AppealProvider {
+class AppealProvider {
   static Future<Put> create(Appeal appeal) async {
     String urlQuery = urlConstructor(Methods.appeal.create);
 
     Map<String, dynamic> body = appeal.toMap();
-    if (appeal.anonim != null && !appeal.anonim) {
+
       body['token'] = await tokenDB();
-    }
+
     print(urlQuery);
     var response;
     response = await Rest.post(urlQuery, body);
@@ -35,11 +35,12 @@ class _AppealProvider {
     }
   }
 
-  static Future<Put> commentAdd(String comment, bool anon) async {
+  static Future<Put> commentAdd(String comment, bool anon, int id) async {
     String urlQuery = urlConstructor(Methods.appeal.commentAdd);
     Map<String, dynamic> body = Map();
-    body['comment'] = comment;
+    body['text'] = comment;
     body['anonim'] = anon;
+    body['id'] = id;
     if (!anon) {
       body['token'] = await tokenDB();
     }
@@ -107,9 +108,11 @@ class _AppealProvider {
     }
   }
 
-  static Future<List<Appeal>> get ()async{
-    String urlQuery = urlConstructor(Methods.appeal.get);
+  static Future<List<Appeal>> get ({bool all})async{
+    String urlQuery = urlConstructor(all != null&& all?Methods.appeal.get:Methods.appeal.getMy);
     Map<String, dynamic> body = Map();
+    if(all == null || all == false)body['token'] = await tokenDB();
+
     var response;
     response = await Rest.post(urlQuery, body);
     if (response is Put) {

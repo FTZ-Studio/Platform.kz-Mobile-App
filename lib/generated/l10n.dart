@@ -74,6 +74,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Авторизация`
+  String get auth {
+    return Intl.message(
+      'Авторизация',
+      name: 'auth',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Вход`
+  String get loginIn {
+    return Intl.message(
+      'Вход',
+      name: 'loginIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Регистрация`
+  String get loginReg {
+    return Intl.message(
+      'Регистрация',
+      name: 'loginReg',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Тут стоит уточнить зачем нам нужны данные от человека, чтобы не оставлять и не бросали заполнение заявки на этом шаге`
+  String get login_desk {
+    return Intl.message(
+      'Тут стоит уточнить зачем нам нужны данные от человека, чтобы не оставлять и не бросали заполнение заявки на этом шаге',
+      name: 'login_desk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Подать обращение`
+  String get addAppeal {
+    return Intl.message(
+      'Подать обращение',
+      name: 'addAppeal',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

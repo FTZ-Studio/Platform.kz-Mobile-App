@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kz/models/Region.dart';
 
 class _NewItemType {
   static String photo = "photo";
@@ -8,20 +9,33 @@ class _NewItemType {
 
 
 class NewItem {
+  bool open = false;
+  String title;
   List<NewItemElement> items;
+  Region region;
+  String time;
+
+
   NewItem({
     @required this.items,
+    @required this.title,
+    this.open = false,
+    this.time,
   });
 
   factory NewItem.fromMap(Map<String, dynamic> map) {
     return new NewItem(
-      items: map['items'].map((i)=>NewItem.fromMap(i)).toList().cast<NewItemElement>() as List<NewItemElement>,
+      title: map['title']??"null",
+      items: map['new_item'].map((i)=>NewItemElement.fromMap(i)).toList().cast<NewItemElement>() as List<NewItemElement>,
+      time: map['time'],
+
     );
   }
 
   Map<String, dynamic> toMap() {
     // ignore: unnecessary_cast
     return {
+      'title': this.title,
       'items': this.items,
     } as Map<String, dynamic>;
   }
@@ -42,7 +56,7 @@ class NewItemElement {
     return new NewItemElement(
       type: map['type'] as String,
       text: map['text']??"",
-      url: map['url']??"",
+      url: map['url_photo']??"",
     );
   }
 

@@ -2,5 +2,10 @@
   "app_name": "kz",
   "snack_no_connection": "No connection",
   "snack_back_connection": "online",
-  "snack_unstable_connection": "Unstable_connection"
+  "snack_unstable_connection": "Unstable_connection",
+  "auth": "Авторизация",
+  "loginIn": "Вход",
+  "loginReg": "Регистрация",
+  "login_desk": "Тут стоит уточнить зачем нам нужны данные от человека, чтобы не оставлять и не бросали заполнение заявки на этом шаге",
+  "addAppeal": "Подать обращение"
 }

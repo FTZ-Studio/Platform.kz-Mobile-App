@@ -25,13 +25,13 @@ class Comment {
   factory Comment.fromMap(Map<String, dynamic> map) {
     return new Comment(
       text: map['text'] as String,
-      id: map['id'] as int,
+      id: int.parse(map['id']),
       date: map['date'] as String,
       anonim: map['anonim'] == "0"?false:true,
-      appeal_id: map['appeal_id'] as int,
-      likes: map['likes'].map((i)=>i).toList().cast<int>() as List<int>,
-      dislikes: map['dislikes'].map((i)=>i).toList().cast<int>() as List<int>,
-      author: map['anonim'] == "0"?null:User.fromMap(map['author']),
+      appeal_id: int.parse(map['appeal_id']),
+      likes: map['likes']==null?[]:map['likes'].map((i)=>i).toList().cast<int>() as List<int>,
+      dislikes: map['dislikes']==null?[]:map['dislikes'].map((i)=>i).toList().cast<int>() as List<int>,
+      author: map['anonim'] == "0"?User.fromMap(map['author']):null,
     );
   }
 

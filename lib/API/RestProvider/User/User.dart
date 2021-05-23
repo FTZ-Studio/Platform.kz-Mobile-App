@@ -1,7 +1,9 @@
 part of '../RestProvider.dart';
 
 
-class _UserProvider{
+class UserProvider{
+  const UserProvider();
+
   static userReg (String email, String password)async{
     String urlQuery = urlConstructor(Methods.user.reg);
     Map <String,dynamic> body = Map();
@@ -13,7 +15,7 @@ class _UserProvider{
     if(response is Put) {
       return response;
     }else{
-      return jsonDecode(response['token']);
+      return response['token'];
     }
   }
   static  userLogin (String email, String password)async{
@@ -28,7 +30,7 @@ class _UserProvider{
     if(response is Put) {
       return response;
     }else{
-      return response;
+      return response['token'];
     }
   }
 
@@ -48,11 +50,43 @@ class _UserProvider{
     }
   }
 
-  static Future<Put> userSetAddress (Address address)async{
+  static Future<Put> setVk (String vk)async{
+    String urlQuery = urlConstructor(Methods.user.setVk);
+    String token = await tokenDB();
+    Map <String,dynamic> body = Map();
+    body['vk'] = vk;
+    body['token'] = token;
+    print(urlQuery);
+    var response;
+    response =await  Rest.post(urlQuery, body);
+    if(response is Put) {
+      return response;
+    }else{
+      return Put.fromJson(response);
+    }
+  }
+  static Future<Put> setPhoto (String vk)async{
+    String urlQuery = urlConstructor(Methods.user.setPhoto);
+    String token = await tokenDB();
+    Map <String,dynamic> body = Map();
+    body['photo'] = vk;
+    body['token'] = token;
+    print(urlQuery);
+    var response;
+    response =await  Rest.post(urlQuery, body);
+    if(response is Put) {
+      return response;
+    }else{
+      return Put.fromJson(response);
+    }
+  }
+
+
+  static Future<Put> userSetAddress (String address)async{
     String urlQuery = urlConstructor(Methods.user.setAddress);
     String token = await tokenDB();
     Map <String,dynamic> body = Map();
-    body['address'] = address.toMap();
+    body['address'] = address;
     body['token'] = token;
     print(urlQuery);
     var response;
@@ -87,13 +121,29 @@ class _UserProvider{
     Map <String,dynamic> body = Map();
     body['email'] = email;
     body['token'] = token;
-    print(urlQuery);
     var response;
     response =await  Rest.post(urlQuery, body);
     if(response is Put) {
       return response;
     }else{
       return Put.fromJson(response);
+    }
+  }
+
+  static Future<User> get ()async{
+    String urlQuery = urlConstructor(Methods.user.get);
+    String token = await tokenDB();
+    Map <String,dynamic> body = Map();
+    body['token'] = token;
+    var response;
+    response =await  Rest.post(urlQuery, body);
+    if(response is Put) {
+      if(response.error == 4){
+        await tokenDB(token: "null");
+      }
+      return User(code: response.error);
+    }else{
+      return User.fromMap(response['userinfo']);
     }
   }
 }

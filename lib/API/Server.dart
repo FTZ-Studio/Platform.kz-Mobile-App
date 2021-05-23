@@ -1,8 +1,8 @@
 part of 'API.dart';
 
-String serverTuriVisa = "http://turi-viza.com";
-
+String serverDefault = "https://xn--80aa5afjdkos.kz";
+String serverLocal = "http://988f31c0f36d.ngrok.io";
 
 class Server{
-  static String get relevant => serverTuriVisa;
+  static String get relevant => serverDefault;
 }

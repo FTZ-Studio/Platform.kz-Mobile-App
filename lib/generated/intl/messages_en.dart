@@ -21,7 +21,12 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "addAppeal" : MessageLookupByLibrary.simpleMessage("Подать обращение"),
     "app_name" : MessageLookupByLibrary.simpleMessage("kz"),
+    "auth" : MessageLookupByLibrary.simpleMessage("Авторизация"),
+    "loginIn" : MessageLookupByLibrary.simpleMessage("Вход"),
+    "loginReg" : MessageLookupByLibrary.simpleMessage("Регистрация"),
+    "login_desk" : MessageLookupByLibrary.simpleMessage("Тут стоит уточнить зачем нам нужны данные от человека, чтобы не оставлять и не бросали заполнение заявки на этом шаге"),
     "snack_back_connection" : MessageLookupByLibrary.simpleMessage("online"),
     "snack_no_connection" : MessageLookupByLibrary.simpleMessage("No connection"),
     "snack_unstable_connection" : MessageLookupByLibrary.simpleMessage("Unstable_connection")
