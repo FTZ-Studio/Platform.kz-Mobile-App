@@ -49,7 +49,7 @@ class _IdeasPageState extends State<IdeasPage> {
           child: Icon(Icons.arrow_back, color: cBlack, size: 24,),
         ),
         centerTitle: true,
-        title: Text("LOGO", style: TextStyle(color: cBlack, fontFamily: fontFamily, fontWeight: FontWeight.w700, fontSize: 24),),
+        title:  Image.asset("assets/images/launch.png",fit: BoxFit.fitHeight, height: kToolbarHeight,),
       ),
       body: loading?loadingWidget():errors?error():items.isEmpty?noIdea():_content(),
     );
