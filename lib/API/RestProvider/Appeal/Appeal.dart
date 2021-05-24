@@ -118,7 +118,7 @@ class AppealProvider {
     if (response is Put) {
       return [];
     } else {
-      return response['appealinfo'].map((i)=> Appeal.fromMap(i)).toList().cast<Appeal>();
+      return (response['appealinfo'].map((i)=> Appeal.fromMap(i)).toList().cast<Appeal>()as List<Appeal>).reversed.toList();
     }
   }
 

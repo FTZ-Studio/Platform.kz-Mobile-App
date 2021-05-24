@@ -5,7 +5,7 @@ import 'package:kz/API/API.dart';
 import 'package:http/http.dart' as http;
 
 Stream<String> uploadPhoto (String filename) async* {
-  String url = Server.relevant+"/"+Api.api+"/upload.photo";
+  String url = Server.relevant+"/"+Api.api+"/upload.photoext";
   print(url);
   print(filename);
   String response;

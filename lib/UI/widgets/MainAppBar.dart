@@ -43,7 +43,8 @@ class _MainAppBarState extends State<MainAppBar> {
             }
           )),
       centerTitle: true,
-      title: Text("LOGO", style: TextStyle(color: cBlack, fontFamily: fontFamily, fontWeight: FontWeight.w700, fontSize: 24),),
+      title: Image.asset("assets/images/launch.png",fit: BoxFit.fitHeight, height: kToolbarHeight,)
+      // title: Text("LOGO", style: TextStyle(color: cBlack, fontFamily: fontFamily, fontWeight: FontWeight.w700, fontSize: 24),),
     );
   }
 

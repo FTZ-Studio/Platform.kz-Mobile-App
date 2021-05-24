@@ -301,7 +301,7 @@ class _AddIdeaState extends State<AddIdea> {
 
 
   Future<bool> uploadPhoto (String filename) async {
-    String url = Server.relevant+"/"+Api.api+"/upload.photo";
+    String url = Server.relevant+"/"+Api.api+"/upload.photoext";
 
     var request = http.MultipartRequest('POST', Uri.parse(url));
     request.files.add(
