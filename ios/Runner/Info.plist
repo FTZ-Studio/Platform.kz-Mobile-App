@@ -27,6 +27,14 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>
+	<key>NSCameraUsageDescription</key>
+    <string>Add photo</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Add your photo to profile</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>For google maps</string>
+     <key>NSLocationAlwaysUsageDescription</key>
+    <string>For google maps</string>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
